@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gil.dev",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "My new home base",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Gil Creque @gilcreque",
   "dependencies": {
     "gatsby": "^2.1.27",
     "gatsby-image": "^2.0.31",
@@ -21,9 +21,6 @@
   "devDependencies": {
     "prettier": "^1.16.4"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -35,9 +32,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/gilcreque/gil.dev"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/gilcreque/gil.dev/issues"
   }
 }
