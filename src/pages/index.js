@@ -4,9 +4,34 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import WordpressPosts from "../components/wordpress-posts"
+import InstagramPosts from "../components/instagram-posts"
 
 export const pageQuery = graphql`
   {
+    allInstaNode(sort: { fields: timestamp, order: DESC }) {
+      edges {
+        node {
+          id
+          likes
+          comments
+          mediaType
+          preview
+          original
+          timestamp
+          caption
+          localFile {
+            childImageSharp {
+              fixed(width: 150, height: 150) {
+                width
+                height
+                src
+                srcSet
+              }
+            }
+          }
+        }
+      }
+    }
     allWordpressPost(limit: 10) {
       edges {
         node {
@@ -28,6 +53,7 @@ export const pageQuery = graphql`
 
 const IndexPage = ({ data }) => {
   const posts = data.allWordpressPost
+  const grams = data.allInstaNode
 
   return (
     <Layout>
@@ -35,7 +61,8 @@ const IndexPage = ({ data }) => {
         title="Home"
         keywords={[`Gil Creque`, `developer`, `Gilberto Creque`]}
       />
-      <WordpressPosts {...posts} />
+      {/* <WordpressPosts {...posts} /> */}
+      <InstagramPosts {...grams} />
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
       </div>
