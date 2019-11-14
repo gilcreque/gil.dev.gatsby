@@ -29,6 +29,16 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
+    'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-theme-notes`,
+      options: {
+        mdx: true,
+        basePath: `/notes`,
+      },
+    },
+    // with gatsby-plugin-theme-ui, the last theme in the config
+    // will override the theme-ui context from other themes
+    { resolve: `gatsby-theme-blog` },
   ],
 }
