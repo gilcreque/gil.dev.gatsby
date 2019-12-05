@@ -1,10 +1,10 @@
+import { graphql } from "gatsby"
 import React from "react"
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
 import Image from "../components/image"
+import InstagramPosts from "../components/instagram-posts"
+import Layout from "../components/layout"
 import SEO from "../components/seo"
 import WordpressPosts from "../components/wordpress-posts"
-import InstagramPosts from "../components/instagram-posts"
 
 export const pageQuery = graphql`
   {
@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
         title="Home"
         keywords={[`Gil Creque`, `developer`, `Gilberto Creque`]}
       />
-      {/* <WordpressPosts {...posts} /> */}
+      <WordpressPosts {...posts} />
       <InstagramPosts {...grams} />
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />

@@ -13,6 +13,52 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "gilcreque.blog",
+        protocol: "https",
+        hostingWPCOM: true,
+        useACF: false,
+        acfOptionPageIds: [],
+        auth: {
+          wpcom_app_clientSecret: process.env.WORDPRESS_CLIENT_SECRET,
+          wpcom_app_clientId: "64992",
+          wpcom_user: "gilcreque",
+          wpcom_pass: process.env.WORDPRESS_PASSWORD,
+        },
+        // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
+        // It can help you debug specific API Endpoints problems.
+        verboseOutput: false,
+        // Set how many pages are retrieved per API request.
+        perPage: 10,
+        // Set how many simultaneous requests are sent at once.
+        concurrentRequests: 5,
+        // Set WP REST API routes whitelists
+        // and blacklists using glob patterns.
+        // Defaults to whitelist the routes shown
+        // in the example below.
+        // See: https://github.com/isaacs/minimatch
+        // Example:  `["/*/*/comments", "/yoast/**"]`
+        // ` will either include or exclude routes ending in `comments` and
+        // all routes that begin with `yoast` from fetch.
+        // Whitelisted routes using glob patterns
+        includedRoutes: [
+          "**/categories",
+          "**/posts",
+          "**/pages",
+          "**/media",
+          "**/tags",
+          "**/taxonomies",
+          "**/users",
+        ],
+        // Blacklisted routes using glob patterns
+        // use a custom normalizer which is applied after the built-in ones.
+        normalizer: function({ entities }) {
+          return entities
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
