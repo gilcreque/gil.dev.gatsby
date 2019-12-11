@@ -1,0 +1,10 @@
+#instagramGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.instagramPhoto {
+  width: 32%;
+  position: relative;
+}

@@ -4,7 +4,6 @@ import Image from "../components/image"
 import InstagramPosts from "../components/instagram-posts"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import WordpressPosts from "../components/wordpress-posts"
 
 export const pageQuery = graphql`
   {
@@ -21,38 +20,35 @@ export const pageQuery = graphql`
           caption
           localFile {
             childImageSharp {
-              fixed(width: 150, height: 150) {
-                width
-                height
+              fluid(maxWidth: 300, maxHeight: 300) {
                 src
-                srcSet
               }
             }
           }
         }
       }
     }
-    allWordpressPost(limit: 10) {
-      edges {
-        node {
-          id
-          slug
-          title
-          content
-          date
-          modified
-          featured_media {
-            id
-            source_url
-          }
-        }
-      }
-    }
+    # allWordpressPost(limit: 10) {
+    #   edges {
+    #     node {
+    #       id
+    #       slug
+    #       title
+    #       content
+    #       date
+    #       modified
+    #       featured_media {
+    #         id
+    #         source_url
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 
 const IndexPage = ({ data }) => {
-  const posts = data.allWordpressPost
+  // const posts = data.allWordpressPost
   const grams = data.allInstaNode
 
   return (
@@ -61,7 +57,7 @@ const IndexPage = ({ data }) => {
         title="Home"
         keywords={[`Gil Creque`, `developer`, `Gilberto Creque`]}
       />
-      <WordpressPosts {...posts} />
+      {/* <WordpressPosts {...posts} /> */}
       <InstagramPosts {...grams} />
       <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
         <Image />
