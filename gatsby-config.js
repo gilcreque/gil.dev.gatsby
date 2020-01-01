@@ -3,6 +3,16 @@ module.exports = {
     title: `Gil Creque`,
     description: `My new home base`,
     author: `@gilcreque`,
+    social: [
+      {
+        name: `Twitter`,
+        url: `https://twitter.com/gilcreque`,
+      },
+      {
+        name: `GitHub`,
+        url: `https://github.com/gilcreque`,
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,7 +29,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Gil Creque - Developer`,
-        short_name: `gil-creque`,
+        short_name: `gilcreque`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -45,6 +55,14 @@ module.exports = {
     },
     // with gatsby-plugin-theme-ui, the last theme in the config
     // will override the theme-ui context from other themes
-    { resolve: `gatsby-theme-blog` },
+    {
+      resolve: `gatsby-theme-blog`,
+      options: {
+        mdx: true,
+        basePath: `/blog`,
+        contentPath: `content/blog`,
+        assetPath: `content/blog/images`,
+      },
+    },
   ],
 }
