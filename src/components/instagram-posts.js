@@ -4,12 +4,6 @@ import "./instagram-posts.css"
 const InstagramPosts = props => {
   const posts = props.edges
 
-  const entityToChar = str => {
-    const textarea = document.createElement("textarea")
-    textarea.innerHTML = str
-    return textarea.value
-  }
-
   return (
     <>
       <h2>Instagram Posts</h2>
@@ -21,7 +15,7 @@ const InstagramPosts = props => {
               <img
                 src={node.localFile.childImageSharp.fluid.src}
                 alt={
-                  entityToChar(node.caption) ||
+                  node.caption ||
                   new Intl.DateTimeFormat("en-US", {
                     weekday: "long",
                     year: "numeric",
@@ -52,7 +46,7 @@ const InstagramPosts = props => {
                 )}
               </p>
               <p>
-                {entityToChar(node.caption) ||
+                {node.caption ||
                   new Intl.DateTimeFormat("en-US", {
                     weekday: "long",
                     year: "numeric",
