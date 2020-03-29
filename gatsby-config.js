@@ -41,12 +41,6 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     "gatsby-plugin-offline",
     {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `gilcreque`,
-      },
-    },
-    {
       resolve: `gatsby-theme-notes`,
       options: {
         mdx: true,
