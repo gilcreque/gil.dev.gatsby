@@ -3,6 +3,16 @@ module.exports = {
     title: `Gil Creque`,
     description: `My new home base`,
     author: `@gilcreque`,
+    social: [
+      {
+        name: `Twitter`,
+        url: `https://twitter.com/gilcreque`,
+      },
+      {
+        name: `GitHub`,
+        url: `https://github.com/gilcreque`,
+      },
+    ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,8 +28,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Gil Creque - Developer`,
+        short_name: `gilcreque`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -29,7 +39,7 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    'gatsby-plugin-offline',
+    "gatsby-plugin-offline",
     {
       resolve: `gatsby-theme-notes`,
       options: {
@@ -37,8 +47,14 @@ module.exports = {
         basePath: `/notes`,
       },
     },
+    {
+      resolve: "@horacioh/gatsby-theme-instagram",
+      options: {
+        type: `account`,
+        username: "gilcreque",
+      },
+    },
     // with gatsby-plugin-theme-ui, the last theme in the config
     // will override the theme-ui context from other themes
-    { resolve: `gatsby-theme-blog` },
   ],
 }
